@@ -10,7 +10,7 @@ public class Store {
     //sell
 
     private String name;
-    private ArrayList<Object> objectsAvailable;
+    private ArrayList<Item> objectsAvailable;
 
     public boolean userBuy (double dinero,int cantidad,int indexObject){
         //validate that there are enough objects of the required type
