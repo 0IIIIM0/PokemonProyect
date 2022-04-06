@@ -17,5 +17,25 @@ public class Potion extends Item{
             //increase 20% ,
 
 
+    public String getEfecto() {
+        return efecto;
+    }
 
+    public void setEfecto(String efecto) {
+        this.efecto = efecto;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
+    public Potion(double cost, int quantity, String name, String type, String efecto, int duracion) {
+        super(cost, quantity, name, type);
+        this.efecto = efecto;
+        this.duracion = duracion;
+    }
 }
