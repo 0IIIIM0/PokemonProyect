@@ -34,4 +34,6 @@ public class Berry extends Item{
         this.effect = effect;
         this.duration = duration;
     }
+
+
 }

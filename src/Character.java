@@ -7,4 +7,5 @@ public class Character {
     //Create a constructor
 
     //fight - Abstract
+
 }
