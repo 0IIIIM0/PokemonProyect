@@ -33,9 +33,29 @@ public class Store {
         this.objectsAvailable = objectsAvailable;
     }
     //before userbuy we need to show show available
-    public boolean userBuy (double dinero, int cantidad, int indexObject){
+    public boolean userBuy (double dinero, int cantidad, int indexObject) {
         //metoth to show the dispo item
+        if (indexObject > objectsAvailable.size()) {
+            System.out.println("Mistake, it doesnt exist that object");
+            return false;
+        } else {
 
+        if (objectsAvailable.get(indexObject).quantity >= cantidad) {
+            double totalPrice = cantidad * objectsAvailable.get(indexObject).cost;
+
+            if (totalPrice >= dinero) {
+                System.out.println("sold");
+                return true;
+            } else {
+                System.out.println("you dont have enough money, missing : " + (totalPrice - cantidad));
+                return false;
+
+            }
+        } else {
+            System.out.println("there is not enought cuantity");
+            return false;
+        }
+    }
         //para cada objeto llamado x dentro de...
 
         //validate that there are enough objects of the required type
@@ -45,7 +65,7 @@ public class Store {
         //else
             //make exception that there's not the sufficient quantity type
             //repeat the question
-        return false;
+
 
     }
     public boolean userSell (Item item,int cuantity){
@@ -56,7 +76,7 @@ public class Store {
     }
     public void showAvailable(){
         //todo metodo para mostrar objetos dsponibles
-        System.out.println("the items abiables are: ");
+        System.out.println("the items available are: ");
         int indice=1;
         for (Item item:objectsAvailable) {
             System.out.println(indice +" - ");

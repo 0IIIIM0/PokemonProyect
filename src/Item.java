@@ -3,10 +3,10 @@ public class Item {
     //quantity-int
     //name -String
 
-    private double cost;
-    private int quantity;
-    private String  name;
-    private String type;
+    protected double cost;
+    protected int quantity;
+    protected String  name;
+    protected String type;
 
     //getters and setters
     public double getCost() {

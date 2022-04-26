@@ -1,10 +1,74 @@
+import java.util.ArrayList;
+
 public class Trainer {
     //Region - String
     //PokemonPet - Pokemon
     //TournamentWon - Int
     //Pokedex - ArrayList<Pokemon>
     //Backpack - ArrayList<Item>
+    private String region;
+    private Pokemon pokemonPet;
+    private int tournamentsWin;
+    ArrayList<Pokemon>pokedex;
+    ArrayList<Item>backpack;
+    private int money;
 
+    public Trainer(String region, Pokemon pokemonPet, int tournamentsWin, ArrayList<Pokemon> pokedex, ArrayList<Item> backpack, int money) {
+        this.region = region;
+        this.pokemonPet = pokemonPet;
+        this.tournamentsWin = tournamentsWin;
+        this.pokedex = pokedex;
+        this.backpack = backpack;
+        this.money = money;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
+    }
+
+    public Pokemon getPokemonPet() {
+        return pokemonPet;
+    }
+
+    public void setPokemonPet(Pokemon pokemonPet) {
+        this.pokemonPet = pokemonPet;
+    }
+
+    public int getTournamentsWin() {
+        return tournamentsWin;
+    }
+
+    public void setTournamentsWin(int tournamentsWin) {
+        this.tournamentsWin = tournamentsWin;
+    }
+
+    public ArrayList<Pokemon> getPokedex() {
+        return pokedex;
+    }
+
+    public void setPokedex(ArrayList<Pokemon> pokedex) {
+        this.pokedex = pokedex;
+    }
+
+    public ArrayList<Item> getBackpack() {
+        return backpack;
+    }
+
+    public void setBackpack(ArrayList<Item> backpack) {
+        this.backpack = backpack;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void setMoney(int money) {
+        this.money = money;
+    }
     //Fight - Abstraction Implemented
     //Choose a Pokemon from the Pokedex
     //If the HP is over 15
@@ -32,7 +96,7 @@ public class Trainer {
     //show items in the backpack
     //let the user choose which one to throw
 
-    //swap
+    //swap // recibe a trainar - pokedex
     //opposite trainer shows pokedex
     //specify the pokemon i want
     //propose a pokemon from the pokedex
