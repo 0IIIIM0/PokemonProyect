@@ -49,7 +49,14 @@ public class Item {
         this.type = type;
     }
 
-
-
+    @Override
+    public String toString() {
+        return this.getClass().toString().substring(5) +
+                "cost=" + cost +
+                ", quantity=" + quantity +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
 
 }

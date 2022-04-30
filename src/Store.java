@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Store {
     //attributes
@@ -47,8 +48,9 @@ public class Store {
             if (objectsAvailable.get(indexObject).quantity >= cantidad) {
                 double totalPrice = cantidad * objectsAvailable.get(indexObject).cost;
 
-                if (totalPrice >= dinero) {
-                    System.out.println("sold");
+                if (dinero >= totalPrice) {
+                    System.out.println("you are buying "+cantidad+""+objectsAvailable.get(indexObject).name+"by $"+totalPrice);
+                    System.out.println("your change is:"+(dinero-totalPrice));
                     return true;
 
                 } else {
@@ -74,11 +76,45 @@ public class Store {
 
     }
     public boolean userSell (Item item,int cuantity){
+
+
+        if(item.name.equals("pokeball"))
+            System.out.println("True");
+
+        if(item.name.equals("potion"))
+            System.out.println("True");
+
+        if(item.name.equals("berry"))
+            System.out.println("false");
+
+
+
+       /* Scanner leer = new Scanner(System.in);
+        System.out.println("Which item do you want to sell ? \n " +
+                "1° pokeball " +
+                "2° potion ");
+        int option = leer.nextInt();
+        if (option==1){
+            System.out.println("How many pokeballs do you want to sell ?");
+            int numPoke= leer.nextInt();
+            if (numPoke>1){
+                System.out.println("how many pokeballs do you want to sell");
+                int pokeballSell=leer.nextInt();
+                if (pokeballSell>cuantity){
+                    System.out.println("You have not enoght poke balls");
+                }
+            }
+        }*/
+
+
+
+        //potion pokeball
         //inverse logic of buy
         //infinite money (store)
         // recive object and give money
-        System.out.println(item.getClass());
+        //System.out.println(item.getClass());
         return false;
+
     }
     public void showAvailable(){
         //todo metodo para mostrar objetos dsponibles
