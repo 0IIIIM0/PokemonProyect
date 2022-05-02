@@ -1,6 +1,9 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.ArrayList;
 
-public class Trainer {
+public class Trainer<pokedex1, pokedex2> extends Character {
+
     //Region - String
     //PokemonPet - Pokemon
     //TournamentWon - Int
@@ -13,13 +16,15 @@ public class Trainer {
     ArrayList<Item>backpack;
     private int money;
 
-    public Trainer(String region, Pokemon pokemonPet, int tournamentsWin, ArrayList<Pokemon> pokedex, ArrayList<Item> backpack, int money) {
+    public Trainer(String name,String level, char genre,String region, Pokemon pokemonPet,int tournamentsWin, ArrayList pokedex, ArrayList backpack, int money) {
+        super(name,level,genre);
         this.region = region;
         this.pokemonPet = pokemonPet;
         this.tournamentsWin = tournamentsWin;
         this.pokedex = pokedex;
         this.backpack = backpack;
         this.money = money;
+
     }
 
     public String getRegion() {
@@ -102,6 +107,29 @@ public class Trainer {
     //propose a pokemon from the pokedex
     //and with random true or false accept
     //if true
+    public void deleteItem(Item item){
+        for (int i =0;i<backpack.size();i++){
+            if (item.name.equals(item.name)) {
+                backpack.remove(i);
+
+            }
+        }
+
+
+
+    }
+    public void exchangePokemon(ArrayList pokedex1,ArrayList pokedex2,int pos1,int pos2){
+
+
+        pokedex1.add(pos2,pokedex2);
+        pokedex2.add(pos1,pokedex1);
+
+        pokedex1.remove(pos1);
+        pokedex2.remove(pos2);
+
+
+
+    }
 
 
 }

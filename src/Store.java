@@ -97,12 +97,9 @@ public class Store {
         if (option==1){
             System.out.println("How many pokeballs do you want to sell ?");
             int numPoke= leer.nextInt();
-            if (numPoke>1){
-                System.out.println("how many pokeballs do you want to sell");
-                int pokeballSell=leer.nextInt();
-                if (pokeballSell>cuantity){
-                    System.out.println("You have not enoght poke balls");
-                }
+            if (numPoke>numerodepokebolasenmochila){
+                System.out.println("you dont have enough pokeballs");
+
             }
         }*/
 
