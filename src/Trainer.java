@@ -111,7 +111,7 @@ public class Trainer<pokedex1, pokedex2> extends Character {
         for (int i =0;i<backpack.size();i++){
             if (item.name.equals(item.name)) {
                 backpack.remove(i);
-
+                System.out.println("item remove");
             }
         }
 

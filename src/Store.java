@@ -1,3 +1,5 @@
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -77,8 +79,28 @@ public class Store {
     }
     public boolean userSell (Item item,int cuantity){
 
+        if (item.getClass().equals(Berry.class)){
+            System.out.println("you can´t sell berry");
+            return false;
+        }else{
+            for (Item element :objectsAvailable ) {
+                if(element.name.equals(item.name)){
+                    element.quantity+=cuantity;
+                    System.out.println("buying an existing item");
+                    return true;
+                }
+                
+            }
+            objectsAvailable.add(item);
+            objectsAvailable.get(objectsAvailable.size()-1).quantity=cuantity;
+            System.out.println("buying a new item from store");
+            return true;
 
-        if(item.name.equals("pokeball"))
+
+        }
+
+
+        /*if(item.name.equals("pokeball"))
             System.out.println("True");
 
         if(item.name.equals("potion"))
@@ -86,7 +108,7 @@ public class Store {
 
         if(item.name.equals("berry"))
             System.out.println("false");
-
+        */
 
 
        /* Scanner leer = new Scanner(System.in);
