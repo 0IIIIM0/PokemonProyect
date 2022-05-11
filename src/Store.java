@@ -132,7 +132,7 @@ public class Store {
         //infinite money (store)
         // recive object and give money
         //System.out.println(item.getClass());
-        return false;
+
 
     }
     public void showAvailable(){
