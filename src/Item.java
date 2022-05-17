@@ -1,4 +1,4 @@
-public class Item {
+public abstract class Item {
     //cost-double
     //quantity-int
     //name -String
@@ -7,6 +7,7 @@ public class Item {
     protected int quantity;
     protected String  name;
     protected String type;
+
 
     //getters and setters
     public double getCost() {
@@ -58,5 +59,6 @@ public class Item {
                 ", type='" + type + '\'' +
                 '}';
     }
+    public abstract boolean use(Pokemon pokemon);
 
 }

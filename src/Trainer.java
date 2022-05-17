@@ -1,6 +1,6 @@
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Trainer<pokedex1, pokedex2> extends Character {
 
@@ -26,6 +26,8 @@ public class Trainer<pokedex1, pokedex2> extends Character {
         this.money = money;
 
     }
+
+
 
     public String getRegion() {
         return region;
@@ -118,14 +120,65 @@ public class Trainer<pokedex1, pokedex2> extends Character {
 
 
     }
-    public void exchangePokemon(ArrayList pokedex1,ArrayList pokedex2,int pos1,int pos2){
+    public void displaybackpack(){
+        System.out.println("you have this Items: ");
+        int index=1;
+        for (Item item : backpack){
+            System.out.println(index+" - ");
+            System.out.println(item);//missing apply to String methods
+            index++;
+        }
+    }
+
+    public void displayPokedex(){
+        System.out.println("you have this pokemones: ");
+        int index=1;
+        for (Pokemon pokemon : pokedex){
+            System.out.println(index+" - ");
+            System.out.println(pokemon);//missing apply to String methods
+            index++;
+        }
+    }
 
 
-        pokedex1.add(pos2,pokedex2);
-        pokedex2.add(pos1,pokedex1);
+    public boolean exchangePokemon(ArrayList <Pokemon> backpackOposite){
+        System.out.println("Items are: ");
+        int index=1;
+        for (Pokemon pokemon : backpackOposite){
+            System.out.println(index+"-");
+            System.out.println(pokemon); //missing apply to String methods
+            index++;
+        }
+        Scanner read = new Scanner(System.in);
+        System.out.println("choose the pokemon from your opponent :");
+        int choosenOpossite = read.nextInt()-1;
+        displayPokedex();
 
-        pokedex1.remove(pos1);
-        pokedex2.remove(pos2);
+        System.out.println("choose the pokemon you want to exchange :");
+        int choosenMine = read.nextInt()-1;
+        System.out.println("I exchange you for : "+pokedex.get(choosenMine));
+        boolean acept= false;
+        Random random=new Random();
+        int value =random.nextInt(5)+1;
+        //operador temario : asignar valor a una variable dependiendo del resultado de una condición
+        // nombrVariable = (Condición) ? valorSiVerdadero : valorSiFalso;
+        //                  ojo debe retornar verdadero o falso
+        acept=(value==1);
+        if (acept){
+            Pokemon aux= pokedex.get(choosenMine);
+            pokedex.set(choosenMine,backpackOposite.get(choosenMine));
+            backpackOposite.remove(choosenOpossite);
+            backpackOposite.add(aux);
+            System.out.println(" sucessful exchange ");
+            return true;
+        }else {
+            System.out.println("he didnt want to change");
+            return false;
+
+        }
+
+
+
 
 
 

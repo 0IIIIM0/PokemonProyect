@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Pokeball extends Item{
     //efficiency - double
     private double efficiency;
@@ -5,6 +7,20 @@ public class Pokeball extends Item{
     public Pokeball(double cost, int quantity, String name, String type, double efficiency) {
         super(cost, quantity, name, type);
         this.efficiency = efficiency;
+    }
+
+    @Override
+    public boolean use(Pokemon pokemon) {
+        if (pokemon.isLegendary()){
+            this.efficiency-=40;
+        }
+        Random random = new Random();
+        int auxValue = random.nextInt(1,100);
+        if (auxValue>=1 && auxValue<=this.efficiency){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     //throw
@@ -24,5 +40,6 @@ public class Pokeball extends Item{
         // else
             // try again
             //exit   ,
+
 }
 

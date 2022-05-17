@@ -36,4 +36,19 @@ public class Berry extends Item{
     }
 
 
+    @Override
+    public boolean use(Pokemon pokemon) {
+        if (this.effect.equals("hp")){
+            pokemon.setHp(pokemon.getHp()+20);
+            return true;
+        }else if (this.effect.equals("strength")){
+            pokemon.setStrength(pokemon.getStrength()+20);
+            return true;
+        }else if (this.effect.equals("Speed")){
+            pokemon.setSpeed(pokemon.getSpeed()+20);
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

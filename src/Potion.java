@@ -3,6 +3,8 @@ public class Potion extends Item{
         super(price, quantity, name, type);
     }
 
+
+
     // effect -String
     //duration -int
 
@@ -37,5 +39,9 @@ public class Potion extends Item{
         super(cost, quantity, name, type);
         this.effect = efecto;
         this.duration = duracion;
+    }
+    @Override
+    public boolean use(Pokemon pokemon) {
+        return true;
     }
 }
