@@ -25,7 +25,7 @@ public class Pokeball extends Item{
 
     @Override
     public String toString() {
-        return "Pokeball{" +
+        return this.getClass().toString().substring(5) +
                 "cost=" + cost +
                 ", quantity=" + quantity +
                 ", name='" + name + '\'' +

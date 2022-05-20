@@ -43,7 +43,7 @@ public abstract class Character {
 
     @Override
     public String toString() {
-        return "Character{" +
+        return this.getClass().toString().substring(5)+ "-" +
                 "name='" + name + '\'' +
                 ", level='" + level + '\'' +
                 ", genre=" + genre +

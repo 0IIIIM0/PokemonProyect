@@ -100,7 +100,7 @@ public class Pokemon extends Character {
 
     @Override
     public String toString() {
-        return "Pokemon{" +
+        return this.getClass().toString().substring(5) +
                 "name='" + name + '\'' +
                 ", level='" + level + '\'' +
                 ", genre=" + genre +

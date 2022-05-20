@@ -38,7 +38,7 @@ public class Ability {
 
     @Override
     public String toString() {
-        return "Ability{" +
+        return this.getClass().toString().substring(5)+
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", basicAttack=" + basicAttack +

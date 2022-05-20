@@ -58,7 +58,7 @@ public class Potion extends Item{
 
     @Override
     public String toString() {
-        return "Potion{" +
+        return this.getClass().toString().substring(5) +
                 "cost=" + cost +
                 ", quantity=" + quantity +
                 ", name='" + name + '\'' +

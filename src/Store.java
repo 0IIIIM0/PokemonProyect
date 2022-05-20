@@ -138,7 +138,7 @@ public class Store {
 
     @Override
     public String toString() {
-        return "Store{" +
+        return this.getClass().toString().substring(5) +
                 "name='" + name + '\'' +
                 ", objectsAvailable=" + objectsAvailable +
                 '}';

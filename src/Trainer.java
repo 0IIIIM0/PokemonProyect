@@ -111,8 +111,8 @@ public class Trainer<pokedex1, pokedex2> extends Character {
     //if true
 
     @Override
-    public String toString() {
-        return "Trainer{" +
+    public String  toString() {
+        return this.getClass().toString().substring(5) +
                 "region='" + region + '\'' +
                 ", pokemonPet=" + pokemonPet +
                 ", tournamentsWin=" + tournamentsWin +
@@ -220,7 +220,12 @@ public class Trainer<pokedex1, pokedex2> extends Character {
                     System.out.println("chose the pokemon for fight");
                     displayPokedex(forFight);
                     int select = read.nextInt();
-                    forFight.get(select).fight(pokemonOpposite);
+                    if (!forFight.get(select).fight(pokemonOpposite)){
+                        forFight.remove(select);
+                    }else {
+                        return true;
+                    }
+
 
                 } else if (resoult == 2) {
                     displaybackpack();
@@ -228,10 +233,14 @@ public class Trainer<pokedex1, pokedex2> extends Character {
                     int selerct = read.nextInt();
                     System.out.println("choose the berry o potion for your poke");
                     displayPokedex(forFight);
-                    backpack.get(selerct - 1).use(forFight.get(selerct));
+                    backpack.get(selerct - 1).use(forFight.get(read.nextInt()));
 
                 } else {
+                    System.out.println("going away");
+                    return false;
                 }
+            }else {
+                return false;
             }
         } while (resoult!=0);
         return false;

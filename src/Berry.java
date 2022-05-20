@@ -51,4 +51,12 @@ public class Berry extends Item{
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().toString().substring(5) +
+                "effect='" + effect + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
 }
