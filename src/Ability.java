@@ -35,4 +35,13 @@ public class Ability {
         this.description = description;
         this.basicAttack = basicAttack;
     }
+
+    @Override
+    public String toString() {
+        return "Ability{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", basicAttack=" + basicAttack +
+                '}';
+    }
 }

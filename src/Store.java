@@ -135,6 +135,15 @@ public class Store {
 
 
     }
+
+    @Override
+    public String toString() {
+        return "Store{" +
+                "name='" + name + '\'' +
+                ", objectsAvailable=" + objectsAvailable +
+                '}';
+    }
+
     public void showAvailable(){
         //todo metodo para mostrar objetos dsponibles
         System.out.println("the items available are: ");

@@ -1,4 +1,4 @@
-public class Character {
+public abstract class Character {
     //Atributes
     //Name - String protected
     //Level -Int protected
@@ -39,5 +39,14 @@ public class Character {
         this.genre = genre;
     }
     //fight - Abstract
+    public abstract boolean fight(Pokemon pokemon);
 
+    @Override
+    public String toString() {
+        return "Character{" +
+                "name='" + name + '\'' +
+                ", level='" + level + '\'' +
+                ", genre=" + genre +
+                '}';
+    }
 }

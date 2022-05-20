@@ -23,6 +23,16 @@ public class Pokeball extends Item{
         }
     }
 
+    @Override
+    public String toString() {
+        return "Pokeball{" +
+                "cost=" + cost +
+                ", quantity=" + quantity +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", efficiency=" + efficiency +
+                '}';
+    }
     //throw
     //review the type of poke-ball
         // how many types of poke-ball do we are going to have (classic effectivity

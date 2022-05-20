@@ -92,6 +92,28 @@ public class Pokemon extends Character {
     public void setStronger(String stronger) {
         this.stronger = stronger;
     }
+
+    @Override
+    public boolean fight(Pokemon pokemon) {
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Pokemon{" +
+                "name='" + name + '\'' +
+                ", level='" + level + '\'' +
+                ", genre=" + genre +
+                ", type='" + type + '\'' +
+                ", ability=" + ability +
+                ", hp=" + hp +
+                ", isLegendary=" + isLegendary +
+                ", weakOf='" + weakOf + '\'' +
+                ", stronger='" + stronger + '\'' +
+                ", strength=" + strength +
+                ", speed=" + speed +
+                '}';
+    }
     //fight
     //use potion for the attack?
     //if yes attack base +20
@@ -101,6 +123,7 @@ public class Pokemon extends Character {
     //else normal attack
 
     //when we attack we need to subtract the hp of the other pokemon the same of the attack
+
 
 
 

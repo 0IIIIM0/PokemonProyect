@@ -42,6 +42,28 @@ public class Potion extends Item{
     }
     @Override
     public boolean use(Pokemon pokemon) {
-        return true;
+        if (this.effect.equals("hp")){
+            pokemon.setHp(pokemon.getHp()+20);
+            return true;
+        }else if (this.effect.equals("strength")){
+            pokemon.getAbility().setBasicAttack(pokemon.getAbility().getBasicAttack()+20);
+            return true;
+        }else if (this.effect.equals("Speed")){
+            pokemon.setSpeed(pokemon.getSpeed()+20);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Potion{" +
+                "cost=" + cost +
+                ", quantity=" + quantity +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", duration=" + duration +
+                '}';
     }
 }

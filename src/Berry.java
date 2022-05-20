@@ -42,7 +42,7 @@ public class Berry extends Item{
             pokemon.setHp(pokemon.getHp()+20);
             return true;
         }else if (this.effect.equals("strength")){
-            pokemon.setStrength(pokemon.getStrength()+20);
+            pokemon.getAbility().setBasicAttack(pokemon.getAbility().getBasicAttack()+20);
             return true;
         }else if (this.effect.equals("Speed")){
             pokemon.setSpeed(pokemon.getSpeed()+20);

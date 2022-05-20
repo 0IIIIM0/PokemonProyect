@@ -109,6 +109,19 @@ public class Trainer<pokedex1, pokedex2> extends Character {
     //propose a pokemon from the pokedex
     //and with random true or false accept
     //if true
+
+    @Override
+    public String toString() {
+        return "Trainer{" +
+                "region='" + region + '\'' +
+                ", pokemonPet=" + pokemonPet +
+                ", tournamentsWin=" + tournamentsWin +
+                ", pokedex=" + pokedex +
+                ", backpack=" + backpack +
+                ", money=" + money +
+                '}';
+    }
+
     public void deleteItem(Item item){
         for (int i =0;i<backpack.size();i++){
             if (item.name.equals(item.name)) {
@@ -120,6 +133,7 @@ public class Trainer<pokedex1, pokedex2> extends Character {
 
 
     }
+
     public void displaybackpack(){
         System.out.println("you have this Items: ");
         int index=1;
@@ -130,10 +144,10 @@ public class Trainer<pokedex1, pokedex2> extends Character {
         }
     }
 
-    public void displayPokedex(){
+    public void displayPokedex(ArrayList<Pokemon> pokemons){
         System.out.println("you have this pokemones: ");
         int index=1;
-        for (Pokemon pokemon : pokedex){
+        for (Pokemon pokemon : pokemons){
             System.out.println(index+" - ");
             System.out.println(pokemon);//missing apply to String methods
             index++;
@@ -152,7 +166,7 @@ public class Trainer<pokedex1, pokedex2> extends Character {
         Scanner read = new Scanner(System.in);
         System.out.println("choose the pokemon from your opponent :");
         int choosenOpossite = read.nextInt()-1;
-        displayPokedex();
+        displayPokedex(pokedex);
 
         System.out.println("choose the pokemon you want to exchange :");
         int choosenMine = read.nextInt()-1;
@@ -183,6 +197,43 @@ public class Trainer<pokedex1, pokedex2> extends Character {
 
 
     }
+    @Override//opposite
+    public boolean fight(Pokemon pokemonOpposite) {
+        ArrayList<Pokemon>forFight=new ArrayList<>();
+        displayPokedex(pokedex);
+        System.out.println("choose 3 pokemons");
+        Scanner read =new Scanner(System.in);
 
+        for (int i =0; i<3;i++){
+            System.out.println("ingrese the pokemon");
+            forFight.add(pokedex.get(read.nextInt()-1));
+        }
+        int resoult=0;
+        do{
+            if (forFight.size()!=0) {
+                System.out.println("1 fight");
+                System.out.println("2 use berry/potion");
+                System.out.println("3 go away");
+                resoult=read.nextInt();
 
+                if (resoult == 1) {
+                    System.out.println("chose the pokemon for fight");
+                    displayPokedex(forFight);
+                    int select = read.nextInt();
+                    forFight.get(select).fight(pokemonOpposite);
+
+                } else if (resoult == 2) {
+                    displaybackpack();
+                    System.out.println("select the berry o the potion for your poke");
+                    int selerct = read.nextInt();
+                    System.out.println("choose the berry o potion for your poke");
+                    displayPokedex(forFight);
+                    backpack.get(selerct - 1).use(forFight.get(selerct));
+
+                } else {
+                }
+            }
+        } while (resoult!=0);
+        return false;
+    }
 }
