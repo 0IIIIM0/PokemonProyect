@@ -93,9 +93,46 @@ public class Pokemon extends Character {
         this.stronger = stronger;
     }
 
+
     @Override
-    public boolean fight(Pokemon pokemon) {
+    public boolean fight(Pokemon pokemonOpossite) {
+        //turn or shift
+        //validate strength weakness
+
+
+           if(this.type.equals(pokemonOpossite.getWeakOf())){
+               this.getAbility().setBasicAttack(this.getAbility().getBasicAttack()+20);
+               pokemonOpossite.getAbility().setBasicAttack(pokemonOpossite.getAbility().getBasicAttack()-20);
+
+           }else if (this.type.equals(pokemonOpossite.getStronger())){
+               this.getAbility().setBasicAttack(this.getAbility().getBasicAttack()-20);
+               pokemonOpossite.getAbility().setBasicAttack(pokemonOpossite.getAbility().getBasicAttack()+20);
+
+           }else {
+               this.getAbility().setBasicAttack(this.getAbility().getBasicAttack()+0);
+               pokemonOpossite.getAbility().setBasicAttack(pokemonOpossite.getAbility().getBasicAttack()+0);
+
+           }
+        do {
+            pokemonOpossite.hp -= this.getAbility().getBasicAttack();
+            if(pokemonOpossite.getHp()<=0){
+                System.out.println("felicidadeshh tio hash ganao");
+                return true;
+            }else {
+                this.setHp(this.getHp()-pokemonOpossite.getAbility().getBasicAttack());
+                if (this.getHp()<=0){
+                    System.out.println("GAME OVER you lose :( ");
+                return false;
+                }
+            }
+
+
+       }while (this.getHp()>0||pokemonOpossite.getHp()>0);
+
+
         return false;
+
+
     }
 
     @Override
@@ -114,7 +151,7 @@ public class Pokemon extends Character {
                 ", speed=" + speed +
                 '}';
     }
-    //fight
+    //fight //switch video
     //use potion for the attack?
     //if yes attack base +20
 
