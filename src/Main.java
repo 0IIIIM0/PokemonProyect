@@ -1,7 +1,25 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Random;
 
-public class Main {
-    public static void main(String[] args) {
+public class Main implements Util {
+    static ArrayList<Ability> habilidades = new ArrayList<>();
+    static Ability hability1 = new Ability("FLYING KICK","DEADLY KICK WITH DOUBLE HOOK",40);
+    static Ability hability2 = new Ability("FIRE FIST", "HIT WITH A FIERY AURA",40);
+    static Ability hability3 = new Ability("PSYCHIC ATTACK", "MENTAL ATTACK", 50 );
+    static Ability hability4 = new Ability("CREEPER", "ENTANGLE THE ENEMY", 50 );
+
+    public static void main(String[] args) throws InterruptedException {
+        habilidades.add(hability1);
+        habilidades.add(hability2);
+        habilidades.add(hability3);
+        habilidades.add(hability4);
+
+
+
+
+
+
         /*ArrayList<Item>forStore=new ArrayList<>();
         Potion potion1= new Potion(30.3,2,"potion","hp","add hp",10);//potion
         Pokeball pokePruve = new Pokeball(20,1,"pokeball","normal",.20);//pokeball
@@ -49,5 +67,111 @@ public class Main {
 
 
 
+    }
+
+    @Override
+    public void timer(long initialTime, long finalTime) throws InterruptedException {
+
+        initialTime = System.currentTimeMillis();
+        Thread.sleep(2000);
+        finalTime= System.currentTimeMillis();
+        float presentTime= (float) ((finalTime-initialTime/1000));
+        System.out.println("you have been playing "+presentTime);
+
+
+    }
+
+    @Override
+    public void displayMenu() {
+        System.out.println("1- Explore");
+        System.out.println("2- Enter to Store");
+        System.out.println("3- Delete Item");
+        System.out.println("4-  Time playing ");
+
+    }
+
+    @Override
+    public Pokemon createPokemonAleatory() {
+        Random randompoke= new Random();
+        int value= randompoke.nextInt(1,100);
+        int hp= randompoke.nextInt(75,250);
+        int force=randompoke.nextInt(30,90);
+        int speed=randompoke.nextInt(1,80);
+        char genre=randompoke.nextInt(1,2)==1?'m':'f';
+
+        return null;
+    }
+
+    @Override
+    public <G> G takeoutaleatory(ArrayList<G> metothauxarray) {
+        return null;
+    }
+
+    @Override
+    public String[] weaknessAndStreightaleatory(String type){
+        String[] types=new String[2];
+        switch (type){
+            case "watter":
+                types[0]="plant";
+                types[1]="fire";
+                break;
+            case "fire":
+                types[0]="watter";
+                types[1]="plant";
+                break;
+            case "land":
+                types[0]="fire";
+                types[1]="plant";
+                break;
+            case "plant":
+                types[0]="fire";
+                types[1]="land";
+                break;
+            default:
+                types[0]="WATA";
+                types[1]="MATTA";
+                break;
+        }
+        return types;
+    }
+
+    @Override
+    public String[] aleatorynames(String type) {
+        String[] names =new String[4];
+        switch (type){
+            case "watter":
+                names[0]="splash";
+                names[1]="whale";
+                names[2]="poseidon";
+                names[3]="rockshok";
+                break;
+            case "fire":
+                names[0]="volcano";
+                names[1]="fireflanc";
+                names[2]="fenix";
+                names[3]="fireball";
+                break;
+            case "land":
+                names[0]="strapper";
+                names[1]="coutch";
+                names[2]="pldiform";
+                names[3]="paladinum";
+                break;
+
+            case "plant ":
+                names[0]="sludge ";
+                names[1]="root";
+                names[2]="groot";
+                names[3]="tree";
+                break;
+            default:
+                names[0]="papito";
+                names[1]="cash";
+                names[2]="Irinishqui";
+                names[3]="Kaio";
+                break;
+        }
+
+        return names;
     }
 }
