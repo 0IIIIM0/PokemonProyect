@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -123,13 +124,16 @@ public class Trainer<pokedex1, pokedex2> extends Character {
     }
 
     public void deleteItem(Item item){
-        for (int i =0;i<backpack.size();i++){
-            if (item.name.equals(item.name)) {
+
+
+            for (int i =0;i<backpack.size();i++){
+             if (item.name.equals(item.name)) {
                 backpack.remove(i);
                 System.out.println("item remove");
+             }else {
+                 System.out.println("check if you select an existence object  ");
+             }
             }
-        }
-
 
 
     }
@@ -207,7 +211,20 @@ public class Trainer<pokedex1, pokedex2> extends Character {
         for (int i =0; i<3;i++){
             System.out.println("ingrese the pokemon");
             forFight.add(pokedex.get(read.nextInt()-1));
+            try {
+                int indice = read.nextInt();
+                forFight.add(pokedex.get(indice - 1));
+            }catch(InputMismatchException e){
+                System.out.println("Ingrese un numero");
+                read.nextLine();
+                i--;
+            } catch (IndexOutOfBoundsException e) {
+                System.out.println("El pokemon no existe, ingrese uno  existente");
+                i--;
+            }
         }
+
+
         int resoult=0;
         do{
             if (forFight.size()!=0) {
@@ -245,4 +262,5 @@ public class Trainer<pokedex1, pokedex2> extends Character {
         } while (resoult!=0);
         return false;
     }
+
 }

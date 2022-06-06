@@ -1,6 +1,7 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main implements Util {
     static ArrayList<Ability> habilidades = new ArrayList<>();
@@ -8,17 +9,15 @@ public class Main implements Util {
     static Ability hability2 = new Ability("FIRE FIST", "HIT WITH A FIERY AURA",40);
     static Ability hability3 = new Ability("PSYCHIC ATTACK", "MENTAL ATTACK", 50 );
     static Ability hability4 = new Ability("CREEPER", "ENTANGLE THE ENEMY", 50 );
+    static ArrayList<String>typesPoke;
 
     public static void main(String[] args) throws InterruptedException {
+        long initialTime=System.currentTimeMillis();
+
         habilidades.add(hability1);
         habilidades.add(hability2);
         habilidades.add(hability3);
         habilidades.add(hability4);
-
-
-
-
-
 
         /*ArrayList<Item>forStore=new ArrayList<>();
         Potion potion1= new Potion(30.3,2,"potion","hp","add hp",10);//potion
@@ -61,7 +60,32 @@ public class Main implements Util {
 
         Trainer pedro= new Trainer("MEFOX","1",'f',"dsd",prove1,1,pokedexMine,null,0);
         System.out.println( pedro.exchangePokemon(pokedexOppositetrainer));*/
+        typesPoke=new ArrayList<>(Arrays.asList("watter","fire","plant","land"));
+        Main objectMain= new Main();
 
+        int resp=1;
+        Scanner read =new Scanner(System.in);
+        while (resp!=0){
+            objectMain.displayMenu();
+            System.out.println("choose an option");
+            resp=read.nextInt();
+            if (resp==1){
+                int stopExploring=1;
+                while (stopExploring!=0){
+                    Thread.sleep(1500);
+                    System.out.println("it apears a wild poke oh noo");
+                    System.out.println(objectMain.createPokemonAleatory());
+                    System.out.println("do you want continue exploring ? press 1-continue 0-no");
+                    stopExploring=read.nextInt();
+
+                }
+            }
+        }
+        Thread.sleep(1500);
+        objectMain.timer(initialTime,System.currentTimeMillis());
+        System.out.println(objectMain.createPokemonAleatory());
+        System.out.println(objectMain.createPokemonAleatory());
+        System.out.println(objectMain.createPokemonAleatory());
 
 
 
@@ -72,11 +96,9 @@ public class Main implements Util {
     @Override
     public void timer(long initialTime, long finalTime) throws InterruptedException {
 
-        initialTime = System.currentTimeMillis();
-        Thread.sleep(2000);
-        finalTime= System.currentTimeMillis();
-        float presentTime= (float) ((finalTime-initialTime/1000));
-        System.out.println("you have been playing "+presentTime);
+
+
+        System.out.println("you have been playing "+(finalTime-initialTime)/1000+"seconds");
 
 
     }
@@ -92,19 +114,34 @@ public class Main implements Util {
 
     @Override
     public Pokemon createPokemonAleatory() {
-        Random randompoke= new Random();
-        int value= randompoke.nextInt(1,100);
-        int hp= randompoke.nextInt(75,250);
-        int force=randompoke.nextInt(30,90);
-        int speed=randompoke.nextInt(1,80);
-        char genre=randompoke.nextInt(1,2)==1?'m':'f';
+        Random random= new Random();
+
+        int numType=random.nextInt(typesPoke.size());
+        String type =takeoutaleatory(typesPoke);
+        int tamNombre= aleatorynames(type).length;
+        int nombre= random.nextInt(tamNombre);
+        int value= random.nextInt(1,100);
+        int hp= random.nextInt(75,250);
+        int strength=random.nextInt(30,90);
+        int speed=random.nextInt(1,80);
+        char genre=random.nextInt(1,2)==1?'m':'f';
+
+
+        int level = random.nextInt(habilidades.size());
+        String finalName=aleatorynames(type)[numType];
+        int numHabilities =random.nextInt(habilidades.size());
+        String [] weaknesStrength=weaknessAndStreightaleatory(type);
+        boolean isLegendary=random.nextBoolean();
+
 
         return null;
     }
 
     @Override
     public <G> G takeoutaleatory(ArrayList<G> metothauxarray) {
-        return null;
+        Random random  =new Random();
+        int index= random.nextInt(0,metothauxarray.size()-1);
+        return metothauxarray.get(index);
     }
 
     @Override

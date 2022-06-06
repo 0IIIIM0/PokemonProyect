@@ -41,6 +41,9 @@ public class Store {
     public boolean userBuy (double dinero, int cantidad, int indexObject) {
         //todo Excepcion
         //metoth to show the dispo item
+        try {
+
+
         if (indexObject > objectsAvailable.size()) {
             System.out.println("Mistake, it doesnt exist that object");
             return false;
@@ -74,8 +77,10 @@ public class Store {
         //else
         //make exception that there's not the sufficient quantity type
         //repeat the question
-
-
+        }catch(IndexOutOfBoundsException e){
+            System.out.println("the object doesnt exist");
+            return false;
+        }
     }
     public boolean userSell (Item item,int cuantity){
 
