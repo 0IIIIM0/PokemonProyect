@@ -125,16 +125,18 @@ public class Trainer<pokedex1, pokedex2> extends Character {
 
     public void deleteItem(Item item){
 
-
-            for (int i =0;i<backpack.size();i++){
-             if (item.name.equals(item.name)) {
-                backpack.remove(i);
-                System.out.println("item remove");
-             }else {
-                 System.out.println("check if you select an existence object  ");
-             }
+        try {
+            for (int i = 0; i < backpack.size(); i++) {
+                if (item.name.equals(item.name)) {
+                    backpack.remove(i);
+                    System.out.println("item remove");
+                } else {
+                    System.out.println("check if you select an existence object  ");
+                }
             }
-
+        }catch (IndexOutOfBoundsException e){
+            System.out.println("Cant find items in the backpack");
+        }
 
     }
 
